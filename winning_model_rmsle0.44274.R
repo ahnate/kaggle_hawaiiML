@@ -184,11 +184,13 @@ plot(eval_err)
 
 # I used 7000 for personal time constraints. Increasing iterations should yield
 # lower RMSEs, although at this point I think it's mostly diminishing returns.
-lgb.model = lgb.train(params = lgb.grid
-                      , data = lgb.train
+lgb.model = lgb.train(data = lgb.train
                       , nrounds = 7000
                       , eval_freq = 10
                       , categorical_feature = categoricals.vec
+                      , params = list(objective = "regression"
+                                      , metric = "rmse"
+                                      )
                       )
 
 # Feature importance
