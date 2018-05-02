@@ -103,6 +103,7 @@ for(v in c("customer_id","invoice_id","stock_id")) {
 
 # Process Description column ----------------------------------------------
 
+# https://www.kaggle.com/kailex/tidy-xgboost-glmnet-text2vec-lsa
 # Creates 1) a Term Frequency Inverse Document Frequency object (counts how
 # often words occurs in description), and 2) 25 Latent Semantic Analysis
 # columns (likelihood of descriptions matching each semantic topic). Due to the
@@ -184,6 +185,7 @@ plot(eval_err)
 
 # I used 7000 for personal time constraints. Increasing iterations should yield
 # lower RMSEs, although at this point I think it's mostly diminishing returns.
+
 lgb.model = lgb.train(data = lgb.train
                       , nrounds = 7000
                       , eval_freq = 10
